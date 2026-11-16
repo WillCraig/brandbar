@@ -1,0 +1,22 @@
+{
+  "name": "Strix Works (example)",
+  "runnerImage": "runner.svg",
+  "reverseRunnerImage": null,
+  "flipRunnerOnReverse": true,
+  "trailImage": null,
+  "trailColors": [
+    "#A3E635",
+    "#22D3EE",
+    "#111827"
+  ],
+  "trailStyle": "STRIPES",
+  "trackColor": "#030712",
+  "borderColor": "#374151",
+  "barHeightPx": 20,
+  "trailHeightPx": 10,
+  "cornerRadiusPx": 6,
+  "indeterminateMode": "BOUNCE",
+  "frameIntervalMs": 32,
+  "stepPx": 4,
+  "indeterminateSegmentRatio": 0.35
+}

@@ -4,7 +4,7 @@
     <vendor email="24501963+WillCraig@users.noreply.github.com" url="https://github.com/WillCraig/brandbar">Will Craig</vendor>
 
     <description><![CDATA[
-        <p>Brand Bar is an original, clean-room, MIT-licensed progress-bar plugin for IntelliJ-based JetBrains IDEs.</p>
+        <p>Brand Bar is an original, clean-room, Apache-2.0-licensed progress-bar plugin for IntelliJ-based JetBrains IDEs. Based on Brand Bar by Will Craig (https://github.com/WillCraig/brandbar).</p>
         <p>Fork the repository and replace only the files under <code>src/main/resources/brand/</code> (runner artwork, optional reverse runner, trail tile or colors, and <code>theme.json</code>) to ship a company-skinned progress bar without modifying Kotlin code.</p>
         <p>JetBrains and IntelliJ are trademarks of JetBrains s.r.o. This project is not affiliated with JetBrains.</p>
     ]]></description>

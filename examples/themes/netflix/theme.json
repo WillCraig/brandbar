@@ -1,0 +1,21 @@
+{
+  "name": "Netflix (example)",
+  "runnerImage": "runner.svg",
+  "reverseRunnerImage": null,
+  "flipRunnerOnReverse": true,
+  "trailImage": null,
+  "trailColors": [
+    "#E50914",
+    "#8E0E00"
+  ],
+  "trailStyle": "GRADIENT",
+  "trackColor": "#141414",
+  "borderColor": "#3A3A3A",
+  "barHeightPx": 20,
+  "trailHeightPx": 10,
+  "cornerRadiusPx": 6,
+  "indeterminateMode": "BOUNCE",
+  "frameIntervalMs": 32,
+  "stepPx": 4,
+  "indeterminateSegmentRatio": 0.35
+}

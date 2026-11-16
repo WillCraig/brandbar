@@ -1,0 +1,22 @@
+{
+  "name": "Union Home Mortgage (example)",
+  "runnerImage": "runner.svg",
+  "reverseRunnerImage": null,
+  "flipRunnerOnReverse": true,
+  "trailImage": null,
+  "trailColors": [
+    "#0B2C4A",
+    "#FF6B35",
+    "#2E6EA6"
+  ],
+  "trailStyle": "GRADIENT",
+  "trackColor": "#071A2E",
+  "borderColor": "#274B6D",
+  "barHeightPx": 20,
+  "trailHeightPx": 10,
+  "cornerRadiusPx": 6,
+  "indeterminateMode": "BOUNCE",
+  "frameIntervalMs": 32,
+  "stepPx": 4,
+  "indeterminateSegmentRatio": 0.35
+}

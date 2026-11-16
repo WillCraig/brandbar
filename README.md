@@ -4,13 +4,46 @@ A brandable progress-bar plugin for IntelliJ-based JetBrains IDEs (`since-build`
 
 ## Clean-room & artwork notice
 
-Brand Bar is an original, clean-room project licensed under the [MIT License](LICENSE).
+Brand Bar is an original, clean-room project licensed under the [Apache License 2.0](LICENSE). See [MAKE-IT-YOURS](docs/MAKE-IT-YOURS.md) for the two rebranding paths (company and individual).
+
+> **Forks and rebranded builds:** please keep a visible **"Based on Brand Bar by Will Craig"** line in your plugin description. Apache-2.0 section 4(d) requires anyone who redistributes Brand Bar — including forks and rebranded builds — to keep the attribution in the [NOTICE](NOTICE) file (`Brand Bar, created by Will Craig (https://github.com/WillCraig/brandbar). Copyright 2026 Will Craig.`).
 
 - It is inspired only by the general idea of custom progress-bar plugins (such as [Nyan Progress Bar](https://plugins.jetbrains.com/plugin/8575-nyan-progress-bar)) and is implemented from scratch in Kotlin using public IntelliJ Platform APIs (`LafManagerListener`, `ApplicationActivationListener`, `JBUI`) and Swing `BasicProgressBarUI`.
 - No code, comments, class names, or assets were copied from `batya239/NyanProgressBar` or `TreeFireMen/intellij-pokemon-progress-ikun`.
 - This repository ships **no** Nyan Cat artwork (Nyan Cat is copyrighted by Chris Torres / PRguitarman), no Nyan rainbow clone, and no IKun or celebrity basketball artwork. All bundled placeholder graphics under `src/main/resources/brand/` are simple, original geometric assets.
 
+## Gallery — example themes
+
+Example themes live in `examples/themes/` for testing and screenshots only;
+they never ship in the plugin zip (enforced by
+`verifyDistributionExcludesExamples`). Runners are simple original SVG
+approximations in real brand colors — see the
+[trademark / fan-art disclaimer](examples/README.md) (not affiliated with or
+endorsed by any brand owner). Render all of them with
+`./gradlew renderExampleScreenshots`, or one with
+`./gradlew renderScreenshots -Pbrandbar.theme=examples/themes/netflix`.
+CI uploads the full set (0/25/50/75/100% plus indeterminate frames per theme)
+as the `brandbar-example-screenshots` artifact.
+
+![Example theme gallery](docs/gallery/gallery-overview.png)
+
+| Theme | 50% strip |
+| --- | --- |
+| Netflix (example) | ![Netflix at 50%](docs/gallery/netflix-050.png) |
+| Google (example) | ![Google at 50%](docs/gallery/google-050.png) |
+| Anthropic (example) | ![Anthropic at 50%](docs/gallery/anthropic-050.png) |
+| Peter Griffin — fan art (example) | ![Peter Griffin fan art at 50%](docs/gallery/peter-griffin-050.png) |
+| Will — personal (example) | ![Personal theme at 50%](docs/gallery/will-craig-personal-050.png) |
+
+Full strips for PNC, Strix Works, Meta, Cursor, Medical Mutual, Union Home
+Mortgage, Sherwin-Williams, and Apple are in the CI artifact above.
+
 ## Fork and brand it
+
+> Full guide: [docs/MAKE-IT-YOURS.md](docs/MAKE-IT-YOURS.md) — a company path
+> (change plugin id/name/vendor, ship via a private plugin repository) and a
+> short individual path (copy an example, edit `theme.json`, build, install
+> from disk).
 
 A fork only needs to edit files in **`src/main/resources/brand/`** to reskin the progress bar:
 
@@ -91,6 +124,7 @@ Every CI run executes on GitHub-hosted `ubuntu-latest` runners (`.github/workflo
 | Output | Local path | GitHub Actions artifact |
 | --- | --- | --- |
 | Headless Java2D renders (0%, 25%, 50%, 75%, 100%, indeterminate bounce & travel frames, plus composite `brandbar-overview.png`) | `build/reports/screenshots/*.png` | `brandbar-screenshots` |
+| Example-theme renders (every `examples/themes/*` theme at 0/25/50/75/100% plus indeterminate, plus `gallery-overview.png`) | `build/reports/example-screenshots/**` | `brandbar-example-screenshots` |
 | Live booted IntelliJ IDEA screenshot (`BrandIdeSmokeTest` under Xvfb) | `build/reports/ide-screenshots/in-ide-brandbar.png` | `brandbar-ide-screenshot` |
 | Plugin Verifier compatibility reports (stable & EAP) | `build/reports/pluginVerifier/**` | `plugin-verifier-stable`, `plugin-verifier-eap` |
 

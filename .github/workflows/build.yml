@@ -56,7 +56,7 @@ jobs:
           java-version: 21
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Build, test, and render Java2D screenshots
         run: ./gradlew build test renderScreenshots renderExampleScreenshots verifyDistributionExcludesExamples --stacktrace
@@ -106,7 +106,7 @@ jobs:
           java-version: 21
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v6
 
       # Starter launches the IDE with `xvfb-run` when DISPLAY is unset.
       # ubuntu-latest does not ship xvfb-run by default.
@@ -156,7 +156,7 @@ jobs:
           java-version: 21
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Verify sinceBuild 243 and latest stable IDEs
         run: ./gradlew verifyPlugin --stacktrace
@@ -192,7 +192,7 @@ jobs:
           java-version: 21
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Verify latest EAP IDEs
         id: eap

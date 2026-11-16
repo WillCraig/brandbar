@@ -59,7 +59,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build, test, and render Java2D screenshots
-        run: ./gradlew build test renderScreenshots --stacktrace
+        run: ./gradlew build test renderScreenshots renderExampleScreenshots verifyDistributionExcludesExamples --stacktrace
 
       - name: Upload progress-bar screenshots
         uses: actions/upload-artifact@v4
@@ -67,6 +67,13 @@ jobs:
           name: brandbar-screenshots
           if-no-files-found: error
           path: build/reports/screenshots/*.png
+
+      - name: Upload example-theme screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: brandbar-example-screenshots
+          if-no-files-found: error
+          path: build/reports/example-screenshots/**
 
       - name: Upload unit test reports
         if: failure()

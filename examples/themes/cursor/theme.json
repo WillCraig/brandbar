@@ -1,0 +1,21 @@
+{
+  "name": "Cursor (example)",
+  "runnerImage": "runner.svg",
+  "reverseRunnerImage": null,
+  "flipRunnerOnReverse": true,
+  "trailImage": null,
+  "trailColors": [
+    "#FFFFFF",
+    "#A1A1AA"
+  ],
+  "trailStyle": "GRADIENT",
+  "trackColor": "#09090B",
+  "borderColor": "#3F3F46",
+  "barHeightPx": 20,
+  "trailHeightPx": 10,
+  "cornerRadiusPx": 6,
+  "indeterminateMode": "BOUNCE",
+  "frameIntervalMs": 32,
+  "stepPx": 4,
+  "indeterminateSegmentRatio": 0.35
+}

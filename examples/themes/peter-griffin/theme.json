@@ -1,0 +1,22 @@
+{
+  "name": "Peter Griffin \u2014 fan art (example)",
+  "runnerImage": "runner.svg",
+  "reverseRunnerImage": null,
+  "flipRunnerOnReverse": true,
+  "trailImage": null,
+  "trailColors": [
+    "#2E7D32",
+    "#FFFFFF",
+    "#F2C29B"
+  ],
+  "trailStyle": "STRIPES",
+  "trackColor": "#2B2118",
+  "borderColor": "#6B4423",
+  "barHeightPx": 20,
+  "trailHeightPx": 10,
+  "cornerRadiusPx": 6,
+  "indeterminateMode": "BOUNCE",
+  "frameIntervalMs": 32,
+  "stepPx": 4,
+  "indeterminateSegmentRatio": 0.35
+}

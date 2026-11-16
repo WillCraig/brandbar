@@ -1,0 +1,22 @@
+{
+  "name": "Meta (example)",
+  "runnerImage": "runner.svg",
+  "reverseRunnerImage": null,
+  "flipRunnerOnReverse": true,
+  "trailImage": null,
+  "trailColors": [
+    "#0866FF",
+    "#0082FB",
+    "#A033FF"
+  ],
+  "trailStyle": "GRADIENT",
+  "trackColor": "#0F172A",
+  "borderColor": "#1E40AF",
+  "barHeightPx": 20,
+  "trailHeightPx": 10,
+  "cornerRadiusPx": 6,
+  "indeterminateMode": "BOUNCE",
+  "frameIntervalMs": 32,
+  "stepPx": 4,
+  "indeterminateSegmentRatio": 0.35
+}

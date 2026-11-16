@@ -1,0 +1,22 @@
+{
+  "name": "Will \u2014 personal (example)",
+  "runnerImage": "runner.svg",
+  "reverseRunnerImage": null,
+  "flipRunnerOnReverse": true,
+  "trailImage": null,
+  "trailColors": [
+    "#7C3AED",
+    "#14B8A6",
+    "#F59E0B"
+  ],
+  "trailStyle": "GRADIENT",
+  "trackColor": "#1E1B2E",
+  "borderColor": "#4C1D95",
+  "barHeightPx": 20,
+  "trailHeightPx": 10,
+  "cornerRadiusPx": 6,
+  "indeterminateMode": "BOUNCE",
+  "frameIntervalMs": 32,
+  "stepPx": 4,
+  "indeterminateSegmentRatio": 0.35
+}

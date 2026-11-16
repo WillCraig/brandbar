@@ -95,6 +95,28 @@ object BrandScreenshotRenderer {
         ),
     )
 
+    fun renderTheme(outputDir: Path, baseTheme: BrandTheme): List<Path> = renderAll(outputDir, baseTheme)
+
+    fun renderGallery(outputDir: Path, themesRoot: Path): List<Path> {
+        Files.createDirectories(outputDir)
+        val slugs = Files.list(themesRoot).use { stream ->
+            stream.filter { Files.isDirectory(it) }.map { it.fileName.toString() }.sorted().toList()
+        }
+        val written = mutableListOf<Path>()
+        val galleryCards = mutableListOf<Pair<ScreenshotSpec, BufferedImage>>()
+        for (slug in slugs) {
+            val theme = BrandThemeLoader.loadFromDirectory(themesRoot.resolve(slug))
+            written += renderAll(outputDir.resolve(slug), theme)
+            val spec = defaultSpecs().first { it.fileName == "determinate-050.png" }
+                .copy(label = "${theme.name} — 50%")
+            galleryCards += spec to renderSingleCard(theme, spec)
+        }
+        val overviewPath = outputDir.resolve("gallery-overview.png")
+        ImageIO.write(renderOverviewSheet("Example Gallery", galleryCards), "PNG", overviewPath.toFile())
+        written.add(overviewPath)
+        return written
+    }
+
     fun renderAll(
         outputDir: Path,
         baseTheme: BrandTheme = BrandThemeLoader.loadBundled(),
@@ -230,7 +252,17 @@ object ScreenshotsCli {
         } else {
             Path.of("build/reports/screenshots")
         }
-        val written = BrandScreenshotRenderer.renderAll(targetDir)
+        val themeDir = System.getProperty("brandbar.theme")?.takeIf { it.isNotBlank() }
+            ?: args.getOrNull(1)
+        val galleryRoot = System.getProperty("brandbar.themesRoot")?.takeIf { it.isNotBlank() }
+        val written = when {
+            galleryRoot != null -> BrandScreenshotRenderer.renderGallery(targetDir, Path.of(galleryRoot))
+            themeDir != null -> BrandScreenshotRenderer.renderTheme(
+                targetDir,
+                BrandThemeLoader.loadFromDirectory(Path.of(themeDir)),
+            )
+            else -> BrandScreenshotRenderer.renderAll(targetDir)
+        }
         println("Rendered ${written.size} Brand Bar screenshots to ${targetDir.toAbsolutePath()}")
     }
 }

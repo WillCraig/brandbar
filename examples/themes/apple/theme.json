@@ -1,0 +1,22 @@
+{
+  "name": "Apple (example)",
+  "runnerImage": "runner.svg",
+  "reverseRunnerImage": null,
+  "flipRunnerOnReverse": true,
+  "trailImage": null,
+  "trailColors": [
+    "#F5F5F7",
+    "#A2AAAD",
+    "#6E6E73"
+  ],
+  "trailStyle": "GRADIENT",
+  "trackColor": "#000000",
+  "borderColor": "#424245",
+  "barHeightPx": 20,
+  "trailHeightPx": 10,
+  "cornerRadiusPx": 6,
+  "indeterminateMode": "BOUNCE",
+  "frameIntervalMs": 32,
+  "stepPx": 4,
+  "indeterminateSegmentRatio": 0.35
+}

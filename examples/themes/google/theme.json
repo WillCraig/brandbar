@@ -1,0 +1,23 @@
+{
+  "name": "Google (example)",
+  "runnerImage": "runner.svg",
+  "reverseRunnerImage": null,
+  "flipRunnerOnReverse": true,
+  "trailImage": null,
+  "trailColors": [
+    "#4285F4",
+    "#EA4335",
+    "#FBBC05",
+    "#34A853"
+  ],
+  "trailStyle": "STRIPES",
+  "trackColor": "#202124",
+  "borderColor": "#5F6368",
+  "barHeightPx": 20,
+  "trailHeightPx": 10,
+  "cornerRadiusPx": 6,
+  "indeterminateMode": "BOUNCE",
+  "frameIntervalMs": 32,
+  "stepPx": 4,
+  "indeterminateSegmentRatio": 0.35
+}

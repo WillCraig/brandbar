@@ -1,0 +1,22 @@
+{
+  "name": "Medical Mutual (example)",
+  "runnerImage": "runner.svg",
+  "reverseRunnerImage": null,
+  "flipRunnerOnReverse": true,
+  "trailImage": null,
+  "trailColors": [
+    "#005EB8",
+    "#0072CE",
+    "#7FB3E0"
+  ],
+  "trailStyle": "GRADIENT",
+  "trackColor": "#0A2342",
+  "borderColor": "#2B4C7E",
+  "barHeightPx": 20,
+  "trailHeightPx": 10,
+  "cornerRadiusPx": 6,
+  "indeterminateMode": "BOUNCE",
+  "frameIntervalMs": 32,
+  "stepPx": 4,
+  "indeterminateSegmentRatio": 0.35
+}

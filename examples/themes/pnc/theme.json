@@ -1,0 +1,22 @@
+{
+  "name": "PNC Bank (example)",
+  "runnerImage": "runner.svg",
+  "reverseRunnerImage": null,
+  "flipRunnerOnReverse": true,
+  "trailImage": null,
+  "trailColors": [
+    "#F26522",
+    "#003768",
+    "#5B7A99"
+  ],
+  "trailStyle": "GRADIENT",
+  "trackColor": "#0B1F35",
+  "borderColor": "#33506E",
+  "barHeightPx": 20,
+  "trailHeightPx": 10,
+  "cornerRadiusPx": 6,
+  "indeterminateMode": "BOUNCE",
+  "frameIntervalMs": 32,
+  "stepPx": 4,
+  "indeterminateSegmentRatio": 0.35
+}

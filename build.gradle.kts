@@ -3,7 +3,11 @@ import org.jetbrains.intellij.platform.gradle.TestFrameworkType
 import org.jetbrains.intellij.platform.gradle.models.ProductRelease
 import org.jetbrains.intellij.platform.gradle.tasks.BuildPluginTask
 import org.jetbrains.intellij.platform.gradle.tasks.VerifyPluginTask.VerificationReportsFormats
+import java.io.File
+import java.math.BigInteger
+import java.security.MessageDigest
 import java.time.Duration
+import java.util.zip.ZipFile
 
 plugins {
     kotlin("jvm")
@@ -98,6 +102,7 @@ tasks.named<Test>("test") {
         "brandbar.screenshots.dir",
         layout.buildDirectory.dir("reports/screenshots").get().asFile.absolutePath,
     )
+    systemProperty("brandbar.examples.dir", rootProject.projectDir.resolve("examples/themes").absolutePath)
     outputs.dir(layout.buildDirectory.dir("reports/screenshots"))
 }
 
@@ -110,6 +115,7 @@ val renderScreenshots = tasks.register<JavaExec>("renderScreenshots") {
     )
     mainClass.set("dev.willc.brandbar.ScreenshotsCli")
     jvmArgs("-Djava.awt.headless=true")
+    providers.gradleProperty("brandbar.theme").orNull?.let { systemProperty("brandbar.theme", it) }
     val outputDir = layout.buildDirectory.dir("reports/screenshots")
     outputs.dir(outputDir)
     argumentProviders.add(
@@ -117,6 +123,72 @@ val renderScreenshots = tasks.register<JavaExec>("renderScreenshots") {
             listOf(outputDir.get().asFile.absolutePath)
         },
     )
+}
+
+val renderExampleScreenshots = tasks.register<JavaExec>("renderExampleScreenshots") {
+    group = "verification"
+    description = "Renders every examples/themes/* theme (0/25/50/75/100% + indeterminate) and a gallery overview sheet."
+    classpath = files(
+        sourceSets.test.get().runtimeClasspath,
+        configurations.named("intellijPlatformClasspath"),
+    )
+    mainClass.set("dev.willc.brandbar.ScreenshotsCli")
+    jvmArgs("-Djava.awt.headless=true")
+    systemProperty("brandbar.themesRoot", rootProject.projectDir.resolve("examples/themes").absolutePath)
+    val outputDir = layout.buildDirectory.dir("reports/example-screenshots")
+    outputs.dir(outputDir)
+    argumentProviders.add(
+        CommandLineArgumentProvider {
+            listOf(outputDir.get().asFile.absolutePath)
+        },
+    )
+}
+
+val verifyDistributionExcludesExamples = tasks.register("verifyDistributionExcludesExamples") {
+    group = "verification"
+    description = "Fails if any examples/ asset (by path, slug, or content hash) ends up in the plugin distribution zip."
+    dependsOn(tasks.named<BuildPluginTask>("buildPlugin"))
+    inputs.dir(rootProject.projectDir.resolve("examples"))
+    val archiveProvider = tasks.named<BuildPluginTask>("buildPlugin").flatMap { it.archiveFile }
+    val examplesDir = rootProject.projectDir.resolve("examples")
+    doLast {
+        val zipPath = archiveProvider.get().asFile
+        val exampleFiles = examplesDir.walkTopDown()
+            .filter { it.isFile }.toList()
+        fun sha256(bytes: ByteArray): String =
+            "%064x".format(BigInteger(1, MessageDigest.getInstance("SHA-256").digest(bytes)))
+        val exampleHashes = exampleFiles.map { f -> sha256(f.readBytes()) }.toSet()
+        val slugs = examplesDir.resolve("themes").listFiles()
+            ?.filter { it.isDirectory }?.map { it.name } ?: emptyList()
+        val offenders = mutableListOf<String>()
+        fun scanZip(file: File, prefix: String) {
+            ZipFile(file).use { zip ->
+                zip.entries().asSequence().forEach { entry ->
+                    val name = "$prefix${entry.name}"
+                    if (name.contains("examples/") || slugs.any { name.contains(it) }) offenders += name
+                    if (entry.name.endsWith(".jar") || entry.name.endsWith(".zip")) {
+                        val tmp = File.createTempFile("brandbar-nested", ".zip")
+                        try {
+                            zip.getInputStream(entry).use { input -> tmp.outputStream().use { input.copyTo(it) } }
+                            scanZip(tmp, "$name!/")
+                        } finally {
+                            tmp.delete()
+                        }
+                    } else if (!entry.isDirectory && entry.size in 1..2_000_000) {
+                        val hash = sha256(zip.getInputStream(entry).readAllBytes())
+                        if (hash in exampleHashes) offenders += "$name (content matches an examples/ file)"
+                    }
+                }
+            }
+        }
+        scanZip(zipPath, "")
+        check(offenders.isEmpty()) { "Example assets leaked into ${zipPath.name}: $offenders" }
+        logger.lifecycle("Verified ${zipPath.name} contains no examples/ assets ({} slugs checked).", slugs.size)
+    }
+}
+
+tasks.named("check") {
+    dependsOn(verifyDistributionExcludesExamples)
 }
 
 intellijPlatformTesting {

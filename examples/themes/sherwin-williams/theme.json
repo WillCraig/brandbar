@@ -1,0 +1,22 @@
+{
+  "name": "Sherwin-Williams (example)",
+  "runnerImage": "runner.svg",
+  "reverseRunnerImage": null,
+  "flipRunnerOnReverse": true,
+  "trailImage": null,
+  "trailColors": [
+    "#005596",
+    "#E31837",
+    "#7FB069"
+  ],
+  "trailStyle": "STRIPES",
+  "trackColor": "#101820",
+  "borderColor": "#005596",
+  "barHeightPx": 20,
+  "trailHeightPx": 10,
+  "cornerRadiusPx": 6,
+  "indeterminateMode": "BOUNCE",
+  "frameIntervalMs": 32,
+  "stepPx": 4,
+  "indeterminateSegmentRatio": 0.35
+}

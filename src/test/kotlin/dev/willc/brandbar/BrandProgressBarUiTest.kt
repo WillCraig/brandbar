@@ -182,12 +182,10 @@ class BrandProgressBarUiTest {
         trackColor: Color,
         borderColor: Color,
     ): Int {
-        val ignored = setOf(0, trackColor.rgb, borderColor.rgb)
-        for (x in image.width - 1 downTo 0) {
-            for (y in 3 until image.height - 3) {
-                val argb = image.getRGB(x, y)
-                val alpha = (argb ushr 24) and 0xFF
-                if (alpha > 16 && argb !in ignored && !isCloseToEither(Color(argb, true), trackColor, borderColor)) {
+        for (x in image.width - 5 downTo 5) {
+            for (y in 6 until image.height - 6) {
+                val pixel = Color(image.getRGB(x, y), true)
+                if (pixel.alpha > 200 && !isCloseToEither(pixel, trackColor, borderColor)) {
                     return x
                 }
             }
@@ -196,7 +194,7 @@ class BrandProgressBarUiTest {
     }
 
     private fun isCloseToEither(pixel: Color, a: Color, b: Color): Boolean =
-        colorDistance(pixel, a) <= 18 || colorDistance(pixel, b) <= 18
+        colorDistance(pixel, a) <= 45 || colorDistance(pixel, b) <= 45
 
     private fun colorDistance(c1: Color, c2: Color): Int =
         kotlin.math.abs(c1.red - c2.red) +

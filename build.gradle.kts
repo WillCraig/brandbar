@@ -104,7 +104,10 @@ tasks.named<Test>("test") {
 val renderScreenshots = tasks.register<JavaExec>("renderScreenshots") {
     group = "verification"
     description = "Renders headless Java2D PNG screenshots of Brand Bar across determinate and indeterminate states."
-    classpath = sourceSets.test.get().runtimeClasspath
+    classpath = files(
+        sourceSets.test.get().runtimeClasspath,
+        configurations.named("intellijPlatformClasspath"),
+    )
     mainClass.set("dev.willc.brandbar.ScreenshotsCli")
     jvmArgs("-Djava.awt.headless=true")
     val outputDir = layout.buildDirectory.dir("reports/screenshots")

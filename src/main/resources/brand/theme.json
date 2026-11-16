@@ -1,0 +1,22 @@
+{
+  "name": "Brand Bar Placeholder",
+  "runnerImage": "runner.svg",
+  "reverseRunnerImage": null,
+  "flipRunnerOnReverse": true,
+  "trailImage": "trail.png",
+  "trailColors": [
+    "#0D9488",
+    "#14B8A6",
+    "#38BDF8"
+  ],
+  "trailStyle": "STRIPES",
+  "trackColor": "#1E293B",
+  "borderColor": "#334155",
+  "barHeightPx": 20,
+  "trailHeightPx": 10,
+  "cornerRadiusPx": 6,
+  "indeterminateMode": "BOUNCE",
+  "frameIntervalMs": 32,
+  "stepPx": 4,
+  "indeterminateSegmentRatio": 0.35
+}

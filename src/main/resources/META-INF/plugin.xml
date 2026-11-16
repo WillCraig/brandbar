@@ -1,0 +1,34 @@
+<idea-plugin>
+    <id>dev.willc.brandbar</id>
+    <name>Brand Bar</name>
+    <vendor email="24501963+WillCraig@users.noreply.github.com" url="https://github.com/WillCraig/brandbar">Will Craig</vendor>
+
+    <description><![CDATA[
+        <p>Brand Bar is an original, clean-room, MIT-licensed progress-bar plugin for IntelliJ-based JetBrains IDEs.</p>
+        <p>Fork the repository and replace only the files under <code>src/main/resources/brand/</code> (runner artwork, optional reverse runner, trail tile or colors, and <code>theme.json</code>) to ship a company-skinned progress bar without modifying Kotlin code.</p>
+        <p>JetBrains and IntelliJ are trademarks of JetBrains s.r.o. This project is not affiliated with JetBrains.</p>
+    ]]></description>
+
+    <change-notes><![CDATA[
+        <ul>
+            <li>0.1.0 — Brandable determinate and indeterminate <code>ProgressBarUI</code> driven entirely by <code>src/main/resources/brand/</code>, with JBUI HiDPI scaling, unit tests, and headless CI screenshot rendering.</li>
+        </ul>
+    ]]></change-notes>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <idea-version since-build="243"/>
+
+    <applicationListeners>
+        <listener class="dev.willc.brandbar.BrandLafListener"
+                  topic="com.intellij.ide.ui.LafManagerListener"/>
+        <listener class="dev.willc.brandbar.BrandActivationListener"
+                  topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+        <listener class="dev.willc.brandbar.BrandDynamicPluginListener"
+                  topic="com.intellij.ide.plugins.DynamicPluginListener"/>
+    </applicationListeners>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <postStartupActivity implementation="dev.willc.brandbar.BrandStartupActivity"/>
+    </extensions>
+</idea-plugin>

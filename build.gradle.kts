@@ -143,3 +143,9 @@ tasks.matching { it.name == "integrationTest" }.configureEach {
     group = "verification"
     description = "Boots a real IDE under Xvfb with Brand Bar installed, asserts ProgressBarUI registration, and captures an in-IDE screenshot."
 }
+
+tasks.register("runPluginVerifier") {
+    group = "verification"
+    description = "Compatibility alias for verifyPlugin."
+    dependsOn("verifyPlugin")
+}

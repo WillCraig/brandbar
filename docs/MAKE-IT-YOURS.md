@@ -67,8 +67,9 @@ frames and an overview sheet).
 ## Path 2: an individual making their own
 
 1. Fork the repo, or just clone it.
-2. Copy an example theme (for example `examples/themes/will-craig-personal/`
-   or `examples/themes/peter-griffin/`) into `src/main/resources/brand/`.
+2. Copy an example theme (for example `examples/themes/will-craig-personal/`,
+   `examples/themes/peter-griffin/`, `examples/themes/sailboat/`, or
+   `examples/themes/beer/`) into `src/main/resources/brand/`.
 3. Edit `theme.json`, drop in your own images, preview headlessly (above).
 4. Run `./gradlew buildPlugin`.
 5. In your IDE: **Settings → Plugins → ⚙ → Install Plugin from Disk…** and

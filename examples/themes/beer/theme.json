@@ -1,0 +1,23 @@
+{
+  "name": "Beer \u2014 pint (example)",
+  "runnerImage": "runner.svg",
+  "reverseRunnerImage": null,
+  "flipRunnerOnReverse": true,
+  "trailImage": null,
+  "trailColors": [
+    "#FFF8F0",
+    "#E8B84A",
+    "#C8860A",
+    "#8B5A0A"
+  ],
+  "trailStyle": "GRADIENT",
+  "trackColor": "#2A1F14",
+  "borderColor": "#5C3D1E",
+  "barHeightPx": 20,
+  "trailHeightPx": 10,
+  "cornerRadiusPx": 6,
+  "indeterminateMode": "BOUNCE",
+  "frameIntervalMs": 32,
+  "stepPx": 4,
+  "indeterminateSegmentRatio": 0.35
+}

@@ -17,6 +17,7 @@ class ExampleThemesTest {
         val EXPECTED_SLUGS = listOf(
             "anthropic",
             "apple",
+            "beer",
             "cursor",
             "google",
             "medical-mutual",
@@ -24,6 +25,7 @@ class ExampleThemesTest {
             "netflix",
             "peter-griffin",
             "pnc",
+            "sailboat",
             "sherwin-williams",
             "strix-works",
             "union-home-mortgage",

@@ -33,6 +33,8 @@ as the `brandbar-example-screenshots` artifact.
 | Google (example) | ![Google at 50%](docs/gallery/google-050.png) |
 | Anthropic (example) | ![Anthropic at 50%](docs/gallery/anthropic-050.png) |
 | Peter Griffin — fan art (example) | ![Peter Griffin fan art at 50%](docs/gallery/peter-griffin-050.png) |
+| Sailboat — Moby-Dick style (example) | ![Sailboat at 50%](docs/gallery/sailboat-050.png) |
+| Beer — pint (example) | ![Beer at 50%](docs/gallery/beer-050.png) |
 | Will — personal (example) | ![Personal theme at 50%](docs/gallery/will-craig-personal-050.png) |
 
 Full strips for PNC, Strix Works, Meta, Cursor, Medical Mutual, Union Home

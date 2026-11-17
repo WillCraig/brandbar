@@ -1,0 +1,23 @@
+{
+  "name": "Sailboat \u2014 Moby-Dick style (example)",
+  "runnerImage": "runner.svg",
+  "reverseRunnerImage": null,
+  "flipRunnerOnReverse": true,
+  "trailImage": null,
+  "trailColors": [
+    "#0B2540",
+    "#134074",
+    "#1F7A8C",
+    "#5BA3C0"
+  ],
+  "trailStyle": "GRADIENT",
+  "trackColor": "#061A2B",
+  "borderColor": "#1B4965",
+  "barHeightPx": 22,
+  "trailHeightPx": 12,
+  "cornerRadiusPx": 5,
+  "indeterminateMode": "BOUNCE",
+  "frameIntervalMs": 32,
+  "stepPx": 4,
+  "indeterminateSegmentRatio": 0.35
+}

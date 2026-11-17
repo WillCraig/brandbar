@@ -26,6 +26,13 @@ jobs:
       - name: Fetch sources
         uses: actions/checkout@v7
 
+      - name: Free disk space
+        uses: jlumbroso/free-disk-space@v2.0.0
+        with:
+          tool-cache: false
+          preinstalled-runtimes: false
+          swap-storage: false
+
       - name: Assign open pull request to WillCraig
         if: github.event_name == 'push' && github.ref_name != 'main'
         continue-on-error: true

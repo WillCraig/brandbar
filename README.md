@@ -37,7 +37,7 @@ as the `brandbar-example-screenshots` artifact.
 | Beer — pint (example) | ![Beer at 50%](docs/gallery/beer-050.png) |
 | Will — personal (example) | ![Personal theme at 50%](docs/gallery/will-craig-personal-050.png) |
 
-Full strips for PNC, Strix Works, Meta, Cursor, Medical Mutual, Union Home
+Full strips for Strix Works, Meta, Cursor, Medical Mutual, Union Home
 Mortgage, Sherwin-Williams, and Apple are in the CI artifact above.
 
 ## Fork and brand it

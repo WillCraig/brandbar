@@ -18,7 +18,7 @@ The Sailboat and Beer themes are wholly original fan-style art (nautical /
 generic pint glass); they are not affiliated with any publisher, brewery, or
 trademark.
 
-**These examples are not affiliated with, sponsored, or endorsed by** PNC,
+**These examples are not affiliated with, sponsored, or endorsed by**
 Strix Works, Meta, Google, Netflix, Cursor, Anthropic, Medical Mutual, Union
 Home Mortgage, Sherwin-Williams, Apple, Fox, or any other brand owner. Per-theme
 asset notes and palette source URLs are in each theme's `SOURCES.md`.

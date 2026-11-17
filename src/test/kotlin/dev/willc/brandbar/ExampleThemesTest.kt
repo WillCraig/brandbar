@@ -24,7 +24,6 @@ class ExampleThemesTest {
             "meta",
             "netflix",
             "peter-griffin",
-            "pnc",
             "sailboat",
             "sherwin-williams",
             "strix-works",

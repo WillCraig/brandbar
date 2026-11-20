@@ -22,6 +22,11 @@ jobs:
       - name: Free disk space
         uses: jlumbroso/free-disk-space@v2.0.0
         with:
+          android: true
+          docker-images: true
+          dotnet: true
+          haskell: true
+          large-packages: false
           tool-cache: false
           preinstalled-runtimes: false
           swap-storage: false

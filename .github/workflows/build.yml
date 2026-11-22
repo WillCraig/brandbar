@@ -29,6 +29,12 @@ jobs:
       - name: Free disk space
         uses: jlumbroso/free-disk-space@v2.0.0
         with:
+          # IDE verifier jobs need disk, not apt package sweeps (large-packages is slow).
+          android: true
+          docker-images: true
+          dotnet: true
+          haskell: true
+          large-packages: false
           tool-cache: false
           preinstalled-runtimes: false
           swap-storage: false
@@ -102,6 +108,12 @@ jobs:
       - name: Free disk space
         uses: jlumbroso/free-disk-space@v2.0.0
         with:
+          # IDE verifier jobs need disk, not apt package sweeps (large-packages is slow).
+          android: true
+          docker-images: true
+          dotnet: true
+          haskell: true
+          large-packages: false
           tool-cache: false
           preinstalled-runtimes: false
           swap-storage: false
@@ -152,6 +164,12 @@ jobs:
       - name: Free disk space
         uses: jlumbroso/free-disk-space@v2.0.0
         with:
+          # IDE verifier jobs need disk, not apt package sweeps (large-packages is slow).
+          android: true
+          docker-images: true
+          dotnet: true
+          haskell: true
+          large-packages: false
           tool-cache: false
           preinstalled-runtimes: false
           swap-storage: false
@@ -188,6 +206,12 @@ jobs:
       - name: Free disk space
         uses: jlumbroso/free-disk-space@v2.0.0
         with:
+          # IDE verifier jobs need disk, not apt package sweeps (large-packages is slow).
+          android: true
+          docker-images: true
+          dotnet: true
+          haskell: true
+          large-packages: false
           tool-cache: false
           preinstalled-runtimes: false
           swap-storage: false

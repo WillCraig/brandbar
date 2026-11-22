@@ -70,6 +70,11 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v6
+        with:
+          cache-read-only: ${{ github.ref != 'refs/heads/main' }}
+          cache-cleanup: on-success
+          gradle-home-cache-excludes: |
+            caches/modules-2/files-2.1/com.jetbrains.intellij.**
 
       - name: Build, test, and render Java2D screenshots
         run: ./gradlew build test renderScreenshots renderExampleScreenshots verifyDistributionExcludesExamples --stacktrace
@@ -126,6 +131,11 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v6
+        with:
+          cache-read-only: ${{ github.ref != 'refs/heads/main' }}
+          cache-cleanup: on-success
+          gradle-home-cache-excludes: |
+            caches/modules-2/files-2.1/com.jetbrains.intellij.**
 
       # Starter launches the IDE with `xvfb-run` when DISPLAY is unset.
       # ubuntu-latest does not ship xvfb-run by default.
@@ -182,6 +192,11 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v6
+        with:
+          cache-read-only: ${{ github.ref != 'refs/heads/main' }}
+          cache-cleanup: on-success
+          gradle-home-cache-excludes: |
+            caches/modules-2/files-2.1/com.jetbrains.intellij.**
 
       - name: Verify sinceBuild 243 and latest stable IDEs
         run: ./gradlew verifyPlugin --stacktrace
@@ -224,6 +239,11 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v6
+        with:
+          cache-read-only: ${{ github.ref != 'refs/heads/main' }}
+          cache-cleanup: on-success
+          gradle-home-cache-excludes: |
+            caches/modules-2/files-2.1/com.jetbrains.intellij.**
 
       - name: Verify latest EAP IDEs
         id: eap
